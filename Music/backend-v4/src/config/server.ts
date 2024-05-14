@@ -509,29 +509,29 @@ app.post("/rota-recebimento-mercado-pago", async (req: any, res: any) => {
 
 //rotas integração pix  v3
 //CADASTRO DE ADMINISTRADOR ADM
- app.post("/pessoa", async (req, res) => {
-   try {
-     const salt = await bcrypt.genSalt(10);
-    req.body.senha = await bcrypt.hash(req.body.senha, salt);
-   req.body.dataInclusao = new Date(Date.now());
+// app.post("/pessoa", async (req, res) => {
+//   try {
+//     const salt = await bcrypt.genSalt(10);
+//     req.body.senha = await bcrypt.hash(req.body.senha, salt);
+//     //req.body.dataInclusao = new Date(Date.now());
 
-    const pessoa = await prisma.pix_Pessoa.create({ data: req.body });
+//     const pessoa = await prisma.pix_Pessoa.create({ data: req.body });
 
-   pessoa.senha = "";
+//     pessoa.senha = "";
 
-   return res.json(pessoa);
-   } catch (err: any) {
-    console.log(err);
-    return res.status(500).json({ error: `>>:${err.message}` });
-   }
-});
+//     return res.json(pessoa);
+//   } catch (err: any) {
+//     console.log(err);
+//     return res.status(500).json({ error: `>>:${err.message}` });
+//   }
+// });
 
 //iniciar v4
 app.post("/config", async (req, res) => {
   try {
 
-   //console.log(req.body);
-   //return res.status(200).json({ msg: "Cadastro efetuado com sucesso! Acesse o painel ADM V4" });
+    // console.log(req.body);
+    // return res.status(200).json({ msg: "Cadastro efetuado com sucesso! Acesse o painel ADM V4" });
 
 
     const p = await prisma.pix_Pessoa.findFirst();
